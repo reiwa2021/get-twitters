@@ -1,0 +1,76 @@
+<%# ツイッターアプリのトップ画面 %>
+<div class="twitterSectionScroll">
+  <%# ツイート情報の配列でループ処理を行います %>
+  <% arrayTweetsUserTl.forEach((elem, index)=> { %>
+  <%# ページの先頭要素を判別します %>
+  <% if(index % tweeterAccountNum == 0){ %>
+  <%# 各ページの先頭にsectionタグ(ページスクロール遷移対応)を記入します。%>
+  <section>
+    <%# 1ページ目は検索ボックスなどのヘッダーおよび署名を挿入します。 %>
+    <% if(index==0){ %>
+    <%- include("../partials/_header") %>
+    <%- include("../partials/_author") %>
+    <% } %>
+    <%# 各ページにツイッター情報表示用のコンテナタグを記入します。 %>
+    <div class="twitter-container-area">
+      <% } %>
+      <%# ツイッター情報一つ分のコンテナタグを記入します。 %>
+      <div class="twitter-container-one" id="<%= `${elem[0].user.screen_name}` %>">
+        <%# コンテナ上部(アカウントアイコン、アカウント名、アカウント説明用)のタグを記入します。 %>
+        <div class="twitterーcontainer-top">
+          <%# コンテナ上部全体にツイッターアカウントへのリンクを貼ります %>
+          <!-- <a class="div-link" href="<%= `https://twitter.com/${elem[0].user.screen_name}` %>" target="_blank"></a> -->
+          <div class="twitter-icon">
+            <a href="<%= `https://twitter.com/${elem[0].user.screen_name}` %>" target="_blank">
+              <img src="<%= elem[0].user.profile_image_url_https %>" alt="ツイッターアイコン">
+            </a>
+            <button type="button" class="delete-btn" data-screen_name="<%= elem[0].user.screen_name %>">削除</button>
+          </div>
+          <%# 左のdivボックスにtable-cell(vertical-align:top)を設定したので、セルで揃えるために右もdivコンテナで囲います %>
+          <div class="twitter-top-right">
+            <div class="twitter-name-area">
+              <span class="twitter-name-span">
+                <a class="link-underline" href="<%= `https://twitter.com/${elem[0].user.screen_name}` %>" target="_blank">
+                  <%- elem[0].user.name %>
+                </a>
+              </span>
+            </div>
+            <div class="tweeter-description-area">
+              <%- elem[0].user.description %>
+            </div>
+          </div>
+        </div>
+        <%# コンテナ下部(ツイート内容、ツイート時間)のタグを記入します %>
+        <div class="tweet-container-bottom">
+          <%# アカウントごとにツイートをすべて取得します %>
+          <% elem.forEach((elemIn, index)=> { %>
+          <p class="tweets-content">
+            <%= elemIn.text %>
+          </p>
+          <p class="tweet-time">
+            <%# ツイートタイムを計算し結果を表示するEJSをインクルードします。(この時elemInオブジェクトを渡します。) %>
+            <%- include("../partials/_tweetTime", {elemIn: elemIn}) %>
+          </p>
+          <hr class="tweet-hr">
+          <% }) %>
+        </div>
+      </div>
+      <%# 「div twitter-container-area」の終了条件(1ページに表示するアカウント数に達するか、 表示するアカウントが最後の時) %>
+      <% if(index % tweeterAccountNum == tweeterAccountNum - 1 || arrayTweetsUserTl.length == index + 1 ){ %>
+    </div>
+    <%# 最終ページにフッターを記入します %>
+    <% if(arrayTweetsUserTl.length == index + 1) { %>
+    <hr class="copylight-hr">
+    <%# フッター作成のターゲットになる「div id」です %>
+    <div id="copylight-area"></div>
+    <% } %>
+    <%#「section」の終了(1ページに表示するアカウント数に達するか、 表示するアカウントが最後の時) %>
+  </section>
+  <% } %>
+  <%# ツイート情報配列ループの終了 %>
+  <% }) %>
+</div>
+
+
+<%# url文字列にリンクを貼るスクリプトを読み込みます %>
+<script defer type="text/javascript" src="/js/url.js"></script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<%# 各画面共通レイアウト %>
+<html>
+<head>
+  <meta charset="utf=8">
+  <title>Twitter情報表示サイト(勉強用)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TwitterAPIを使用したテストサイト">
+  <%# リセットCSSを読み込みます。 %>
+  <link rel="stylesheet" href="/css/destyle.css">
+  <%# 各画面用のCSSを読み込みます。%>
+  <link rel="stylesheet" href="/css/twitter_app.css">
+  <%# 画面サイズが600px以上の時、スクロールページ遷移に対応したCSSを読み込みます %>
+  <link rel="stylesheet" media="all and (min-width:600px)" href="/css/onepage-scroll.css">
+  <%# スクロールページ遷移スクリプトのためにjqueryライブラリを読み込みます。 %>
+  <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+  <%# スクロールページ遷移スクリプト(関数定義)を読み込みます %>
+  <script type="text/javascript" src="/js/jquery.onepage-scroll.js"></script>
+  <%# スクロールページ遷移スクリプト(実行)を読み込みます(画面サイズが600px以上の時に実行します) %>
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <%# 最終ページのコピーライトスクリプトを読み込みます %>
+  <script type="text/javascript" src="/js/copylight.js"></script>
+  <%# ツイート関連情報のコンテナを削除するスクリプトを読み込みます %>
+  <script defer type="text/javascript" src="/js/delete-one-container.js"></script>
+</head>
+<body>
+    <%# ここにrenderでEJSを表示します) %>
+    <%- body %>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+data/
+out/
+views/
+*.ejs
+*.html
+*.csv
+*.sh
+jquery-1.9.1.js
+jquery.onepage-scroll.js

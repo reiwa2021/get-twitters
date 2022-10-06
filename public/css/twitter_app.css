@@ -1,0 +1,406 @@
+@charset "utf-8";
+/* 各種画面用のCSSファイルです */
+
+/* bodyタグ */
+body {
+  background-color: #b5ffb5;
+}
+
+/* 先頭ページのタイトル */
+.main-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* 検索エリア */
+.search-area {
+  margin: 10px auto 5px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 検索ラベル */
+.search-area form label {
+  font-size: 1.1rem;
+}
+
+/* 検索フォーム */
+.search-area input[type='search'] {
+  margin: 2px;
+  height: 36px;
+  width: 300px;
+  font-size: 1.1rem;
+  border: 1px solid #bab7bb;
+  padding: 2px;
+  background-color: #96e7be;
+  /* 角丸の指定 */
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* 検索ボタン */
+.search-area button {
+  font-size: 1.1rem;
+  height: 36px;
+  width: 50px;
+  padding: 4px;
+  border: 1px solid #524f53;
+  /* 角丸の指定 */
+  border-radius: 5px;
+  background-color: #b8b8dc;
+  box-shadow: 2px 2px gray;
+}
+
+/* 署名エリア */
+.author-area {
+  color: #000000;
+  padding: 10px;
+  border: 2px solid #000000;
+  background-color: #45e690;
+  /* 画面右上に表示させるためフレックスボックスの影響を受けないようにします */
+  position: absolute;
+  right: 70px;
+  top: 13px;
+  /* 角丸の指定 */
+  /* border-radius: 15px 240px 15px 240px / 50px 15px 240px 15px; */
+  border-radius: 5px;
+  /* バックグランドカラーとフォントカラーを変化させます。 */
+  transition: background-color 1s 0s ease, color 1s 1s ease;
+}
+
+/* 署名エリアのマウスオーバー(transition対応) */
+.author-area:hover {
+  color: #ffffff;
+  background-color: #216751;
+}
+
+/* ページスクロール遷移対応sectionタグ */
+section {
+  /* 上下左右の中央に揃えます。 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* タイトル、検索エリアとツイッターエリアを縦並びにします。 */
+  flex-direction: column;
+}
+
+/* 画面サイズが600px以上(PC、タブレット) */
+@media all and (min-width: 600px) {
+
+  /* ツイッターコンテンツエリア */
+  .twitter-container-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #3bb58c;
+    width: 1005px;
+    height: auto;
+    margin: 20px auto;
+    padding: 1.5px;
+    border-radius: 5px;
+  }
+
+  /* ツイッター情報一個のコンテナエリア */
+  .twitter-container-one {
+    width: 33%;
+    /* onePageScroll用に小さいサイズに。height:335pxが元サイズ */
+    height: 258px;
+    margin: 1.5px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    background-color: #6bdb8c;
+    border-radius: 5px;
+  }
+
+  /* ツイッター情報の下部分 */
+  .tweet-container-bottom {
+    /* onePageScroll用に小さいサイズに。height: 227px;が元サイズ*/
+    height: 150px;
+    background-color: #90eed8;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-left: 4px;
+    border-radius: 5px;
+  }
+
+  /* コピーライトの区切り */
+  .copylight-hr {
+    border: 0;
+    border-top: 1px;
+    border-style: dotted;
+    border-color: black;
+    width: 65%;
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* コピーライトエリア */
+  #copylight-area {
+    width: 65%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* 画面サイズが599px以下(スマホ対応) */
+@media all and (max-width: 599px) {
+
+  /* 署名エリアを非表示にします。 */
+  .author-area {
+    display: none;
+  }
+
+  /* ツイッターコンテンツエリア */
+  .twitter-container-area {
+    /* フレックスボックスで縦一列に表示します。 */
+    display: flex;
+    flex-wrap: nowrap;
+    /* モバイル用に変更 */
+    flex-direction: column;
+    /* モバイル用に追加 */
+    justify-content: center;
+    /* モバイル用に追加 */
+    align-items: center;
+    background-color: #3bb58c;
+    /* モバイル用に変更 */
+    width: 90%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5px;
+    border-radius: 5px;
+  }
+
+  /* ツイッター情報コンテナ一個のエリア */
+  .twitter-container-one {
+    /* モバイル用に変更 */
+    width: 99%;
+    /* モバイル用に変更 */
+    height: 335px;
+    margin: 1.5px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    background-color: #6bdb8c;
+    border-radius: 5px;
+  }
+
+  /* ツイッター情報の下部分 */
+  .tweet-container-bottom {
+    /* モバイル用に変更 */
+    height: 227px;
+    background-color: #90eed8;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-left: 4px;
+    border-radius: 5px;
+  }
+
+  /* コピーライトの区切り */
+  .copylight-hr {
+    border: 0;
+    border-top: 1px;
+    border-style: dotted;
+    border-color: black;
+    /* モバイル用に変更 */
+    width: 90%;
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* コピーライトエリア */
+  #copylight-area {
+    /* モバイル用に変更 */
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* ツイッター情報の上部分 */
+.twitterーcontainer-top {
+  display: table;
+  width: 100%;
+  height: 105px;
+  /* 子要素でリンクを貼る基準するため */
+  position: relative;
+}
+
+/* ツイッター情報上部全体のリンクエリア */
+/* .div-link {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+} */
+
+/* ツイッター情報アイコンエリア */
+.twitter-icon {
+  display: table-cell;
+  box-sizing: border-box;
+  width: 20%;
+  height: 105px;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 3px;
+}
+
+.delete-btn {
+  background-color: #c0c0c0;
+  border-radius: 5px;
+  margin-top: 14px;
+}
+
+/* ツイッター情報の右上エリア */
+.twitter-top-right {
+  display: table-cell;
+  box-sizing: border-box;
+  width: 80%;
+  height: 105px;
+}
+
+/* ツイッターアカウント名のエリア */
+.twitter-name-area {
+  box-sizing: border-box;
+  height: 45px;
+  width: 100%;
+  border-left: 1px dotted #000000;
+  border-bottom: 1px dotted #000000;
+  position: relative;
+}
+
+/* ツイッターアカウント名 */
+.twitter-name-span {
+  /* absoluteの指定によりボックス化し上下中央寄せします。 */
+  position: absolute;
+  /*親のtopから50%*/
+  top: 50%;
+  /*親のleftから50%*/
+  left: 50%;
+  /*子要素自体の大きさを考慮*/
+  transform: translateY(-50%) translateX(-50%);
+  /* absoluteの指定によりボックス化するのでインライン要素でもwidth/heightの指定が可能 */
+  width: 100%;
+  /* テキストを中央寄せ */
+  text-align: center;
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
+
+/* ツイッターアカウント名のリンク */
+.screen-name-link {
+  text-decoration: underline;
+}
+
+/* ツイッターアカウントの説明 */
+.tweeter-description-area {
+  font-size: 0.8rem;
+  text-indent: 1em;
+  border-left: 1px dotted #000000;
+  box-sizing: border-box;
+  height: 60px;
+  word-break: break-all;
+  /* 三行を超える文字を省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* IE対策 */
+  line-height: 1.5em;
+  max-height: 4.5em;
+}
+
+/* ツイートコンテンツエリア  */
+.tweets-content {
+  text-indent: 1em;
+  font-size: 0.8rem;
+  line-height: 1.5em;
+}
+
+/* 文字列ハイライト */
+.highlight {
+  background-color: yellow;
+}
+
+/* リンクアンダーライン */
+.link-underline:hover {
+  text-decoration: underline;
+}
+
+/* ツイート時間 */
+.tweet-time {
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+/* ツイート区切り */
+.tweet-hr {
+  border: 0;
+  border-top: 1px;
+  border-style: dotted;
+  border-color: black;
+}
+
+/* エラーメッセージエリア */
+.error-area {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* エラーメッセージ */
+.error-area .error-message {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* 管理者ページタイトル */
+.admin-title {
+  margin-top: 10px;
+  font-size: 2em;
+  text-align: center;
+}
+
+/* 管理者エリア */
+.admin-area {
+  margin: 30px 0;
+  text-align: center;
+}
+
+/* 登録ボタン */
+.admin-area button {
+  font-size: 1.1rem;
+  height: 36px;
+  width: 50px;
+  padding: 2px;
+  margin: 3px 0px 10px;
+  border: 1px solid #524f53;
+  border-radius: 5px;
+  background-color: #b8b8dc;
+  box-shadow: 2px 2px gray;
+}
+
+/* データベース更新処理の成功エリア */
+.success-area {
+  margin: 30px 0;
+  text-align: center;
+}
+
+/* フッターエリア */
+footer {
+  margin: 3px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* float解除(未使用) */
+.clearfix::after {
+  display: block;
+  content: '';
+  clear: both;
+}
