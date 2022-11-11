@@ -6,6 +6,22 @@ body {
   background-color: #b5ffb5;
 }
 
+
+/* ヘッダーエリア */
+.header-area {
+  display: grid;
+  width: 90%;
+
+}
+
+/* タイトルと検索エリア */
+.title-search-area {
+  grid-area: 1/-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* 先頭ページのタイトル */
 .main-title {
   text-align: center;
@@ -52,28 +68,26 @@ body {
   box-shadow: 2px 2px gray;
 }
 
+
 /* 署名エリア */
 .author-area {
-  color: #000000;
-  padding: 10px;
-  border: 2px solid #000000;
+  /* display: none; */
+  grid-area: 1/-1;
   background-color: #45e690;
-  /* 画面右上に表示させるためフレックスボックスの影響を受けないようにします */
-  position: absolute;
-  right: 70px;
-  top: 13px;
-  /* 角丸の指定 */
-  /* border-radius: 15px 240px 15px 240px / 50px 15px 240px 15px; */
-  border-radius: 5px;
-  /* バックグランドカラーとフォントカラーを変化させます。 */
-  transition: background-color 1s 0s ease, color 1s 1s ease;
+  border: 2px solid #000000;
+  justify-self: end;
+  align-self: center;
+  padding: 10px;
+  margin-right: 30px;
+
 }
 
+
 /* 署名エリアのマウスオーバー(transition対応) */
-.author-area:hover {
+/* .author-area:hover {
   color: #ffffff;
   background-color: #216751;
-}
+} */
 
 /* ページスクロール遷移対応sectionタグ */
 section {
