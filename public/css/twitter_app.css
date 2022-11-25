@@ -11,7 +11,7 @@ body {
 .header-area {
   display: grid;
   width: 90%;
-
+  height: auto;
 }
 
 /* タイトルと検索エリア */
@@ -26,11 +26,12 @@ body {
 .main-title {
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 /* 検索エリア */
 .search-area {
-  margin: 10px auto 5px;
+  margin: 0px auto 5px;
   width: 100%;
   text-align: center;
 }

@@ -8,8 +8,10 @@
   <section>
     <%# 1ページ目は検索ボックスなどのヘッダーおよび署名を挿入します。 %>
     <% if(index==0){ %>
-    <%- include("../partials/_header") %>
-    <%- include("../partials/_author") %>
+    <div class="header-area">
+      <%- include("../partials/_header") %>
+      <%- include("../partials/_author") %>
+    </div>
     <% } %>
     <%# 各ページにツイッター情報表示用のコンテナタグを記入します。 %>
     <div class="twitter-container-area">
