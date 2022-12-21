@@ -1,6 +1,6 @@
 <%# ツイート時間変換スクリプトです %>
 <% const timeTrans = createTime => { %>
-<% var date = new Date(Date.parse(createTime)); %>
+<% var date = new Date((Date.parse(createTime))+ ((new Date().getTimezoneOffset() + (9 * 60)) * 60 * 1000)); %>
 <% var year  = date.getFullYear(); %>
 <% var month = date.getMonth() + 1; %>
 <% var day   = date.getDate(); %>
