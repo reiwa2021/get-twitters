@@ -406,6 +406,12 @@ section {
   text-align: center;
 }
 
+/* データベース更新成功メッセージ */
+.success-area .success-message {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
 /* フッターエリア */
 footer {
   margin: 3px 0px;
