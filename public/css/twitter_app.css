@@ -361,6 +361,20 @@ section {
   border-color: black;
 }
 
+/* 戻るリンク */
+.back-p {
+  width: 90%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+/* フッターエリア */
+footer {
+  margin: 3px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* エラーメッセージエリア */
 .error-area {
   margin-top: 30px;
@@ -410,13 +424,6 @@ section {
 .success-area .success-message {
   font-size: 1.5em;
   margin-bottom: 10px;
-}
-
-/* フッターエリア */
-footer {
-  margin: 3px 0px;
-  display: flex;
-  justify-content: space-between;
 }
 
 /* float解除(未使用) */

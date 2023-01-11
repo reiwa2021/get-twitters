@@ -60,6 +60,7 @@
     </div>
     <%# 最終ページにフッターを記入します %>
     <% if(arrayTweetsUserTl.length == index + 1) { %>
+    <p class="back-p"><a href="JavaScript:history.back()" class="link-underline">戻る</a></p>
     <hr class="copylight-hr">
     <%# フッター作成のターゲットになる「div id」です %>
     <div id="copylight-area"></div>
@@ -72,7 +73,6 @@
   <%# 検索ワードがundefinedの時、空文字を設定します(検索ワードハイライトのエラー対策) %>
   <% if(typeof searchWord == "undefined") {searchWord="";} %>
 </div>
-
 
 <%# word-highlight-url.jsで使うためグローバル変数に検索ワードを格納します。 %>
 <script type="text/javascript">
